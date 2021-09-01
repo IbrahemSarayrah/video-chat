@@ -24,16 +24,19 @@ showChat.addEventListener("click" , ()=>{
 });
 
 const user = prompt("Enter Your Name ...");
-
+console.log('log before 11111111');
 var peer = new Peer(undefined, {
     path: "/peerjs",
     host: "/",
-    port: "443",
+    port: "3000",
+    secure: false
   });
-  
+
 peer.on('open', function(id) {
     console.log('My peer ID is: ' + id);
   });
+
+  console.log('log after 2222222222');
 
 let myVideoStream ;
 
@@ -49,6 +52,7 @@ navigator.mediaDevices
     peer.on('call' , (call)=>{
         call.answer(stream);
         const video = document.createElement('video');
+        video.setAttribute('id','video1');
         call.on('stream' , (userVideoStream)=>{
             addVideoStream(video , userVideoStream);
         });
@@ -63,6 +67,7 @@ navigator.mediaDevices
 const connectToNewUser = (userId , stream) =>{
     const call = peer.call(userId , stream);
     const video = document.createElement('video');
+    video.setAttribute('id','video2');
     call.on('stream' , (userVideoStream)=>{
         addVideoStream(video , userVideoStream);
     });
@@ -86,7 +91,7 @@ let send = document.getElementById("send");
 let messages = document.querySelector(".messages");
 
 send.addEventListener('click',(e)=>{
-    // console.log(text.value);
+    console.log(text.value);
     if(text.value.length !== 0){
         socket.emit('message' , text.value);
         text.value = "";   
@@ -94,7 +99,7 @@ send.addEventListener('click',(e)=>{
 })
 
 text.addEventListener('keydown' , (e)=>{
-    // console.log(text.value);
+    console.log(text.value);
     if(e.key ==="Enter" && text.value.length !==0){
         socket.emit('message' , text.value);
         text.value ="";
