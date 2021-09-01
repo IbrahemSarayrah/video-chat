@@ -23,7 +23,7 @@ showChat.addEventListener("click" , ()=>{
     document.querySelector(".icon").style.display = "block";
 });
 
-const userName = prompt("Enter Your Name ...");
+const user = prompt("Enter Your Name ...");
 
 var peer = new Peer(undefined , {
     path : '/peerjs',
