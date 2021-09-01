@@ -32,7 +32,7 @@ const user = prompt("Enter Your Name ...");
 //     port: '3000'
 //   });
 
-var peer = new Peer({host:'video-chat-app-01.herokuapp.com', secure:true, port:443})
+var peer = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443})
 
 
 peer.on('open', function(id) {
