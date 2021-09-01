@@ -25,11 +25,16 @@ showChat.addEventListener("click" , ()=>{
 
 const user = prompt("Enter Your Name ...");
 
-var peer = new Peer(undefined , {
-    path : '/peerjs',
-    host:'/',
-    port:'443'
-});
+var peer = new Peer(undefined, {
+    path: "/peerjs",
+    host: "/",
+    port: "443",
+    secure: true
+  });
+  
+peer.on('open', function(id) {
+    console.log('My peer ID is: ' + id);
+  });
 
 let myVideoStream ;
 
@@ -79,10 +84,10 @@ const addVideoStream = (video,stream)=>{
 
 let text = document.querySelector("#chat_message");
 let send = document.getElementById("send");
-let message = document.querySelector(".messages");
+let messages = document.querySelector(".messages");
 
 send.addEventListener('click',(e)=>{
-    console.log(text.value);
+    // console.log(text.value);
     if(text.value.length !== 0){
         socket.emit('message' , text.value);
         text.value = "";   
@@ -90,7 +95,7 @@ send.addEventListener('click',(e)=>{
 })
 
 text.addEventListener('keydown' , (e)=>{
-    console.log(text.value);
+    // console.log(text.value);
     if(e.key ==="Enter" && text.value.length !==0){
         socket.emit('message' , text.value);
         text.value ="";
@@ -106,12 +111,12 @@ muteButton.addEventListener('click',()=>{
 
     if(enabled){
         myVideoStream.getAudioTracks()[0].enabled = false;
-        html = `<i class="fas fa-microphone-slash"></i>`;
+      let  html = `<i class="fas fa-microphone-slash"></i>`;
         muteButton.classList.toggle('background__red');
         muteButton.innerHTML = html;
     } else {
         myVideoStream.getAudioTracks()[0].enabled = true;
-        html = `<i class="fas fa-microphone"></i>`;
+      let html = `<i class="fas fa-microphone"></i>`;
         muteButton.classList.toggle('background__red');
         muteButton.innerHTML = html;
     }
@@ -122,12 +127,12 @@ stopVideo.addEventListener('click' , ()=>{
 
     if(enabled) {
         myVideoStream.getVideoTracks()[0].enabled = false;
-        html = `<i class="fas fa-video-slash"></i>`;
+       let html = `<i class="fas fa-video-slash"></i>`;
         stopVideo.classList.toggle('background__red');
         stopVideo.innerHTML = html;
     } else {
         myVideoStream.getVideoTracks()[0].enabled = true;
-        html = `<i class="fas fa-video"></i>`;
+       let html = `<i class="fas fa-video"></i>`;
         stopVideo.classList.toggle('background__red');
         stopVideo.innerHTML = html;
     }
@@ -147,6 +152,7 @@ socket.on("createMessage", (message, userName) => {
           }</span> </b>
           <span>${message}</span>
       </div>`;
+      console.log('>>>>>>>>>',messages.innerHTML);
   });
 
 

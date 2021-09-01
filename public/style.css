@@ -1,81 +1,3 @@
-/* main {
-    height: 800px;
-    background-color: blueviolet;
-}
-.main_left {
-    background-color: red;
-    width: 70%;
-    float: left;
-    height: 100%;
-}
-
-.main_right {
-    background-color: green;
-    width: 30%;
-    float: right;
-    height: 100%;
-
-}
-.video_group{
-    margin-top: 100px;
-    margin-bottom: 100px;
-
-
-}
-
-#video-grid video {
-    width: 40%;
-    display: flex;
-}
-
-.options_left{
-    display: block;
-    width: 400px;
-    float: left;
-    margin-left: 10%;
-    font-size: xx-large;
-}
-
-.options_right{
-    display: block;
-    width: 60px;
-    float: right;
-    font-size: xx-large;
-
-}
-.options_button{
-    display: inline-block;
-    margin-right: 20%;
-}
-
-.options {
-    margin-bottom: 50px;
-}
-
-
-.main__message_container{
-    background-color: blue;
-   display: flex;
-
-}
-
-.messages {
-height: 400px;
-background-color : whi;
-} */
-
-
-
-
-
-
-
-
-
-
-
-/* 
-
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 
@@ -118,7 +40,7 @@ background-color : whi;
   flex-direction: column;
 }
 
-.videos_group {
+.videos__group {
   flex-grow: 1;
   display: flex;
   justify-content: center;
@@ -165,7 +87,7 @@ video {
   margin: 0 0.5rem;
 }
 
-.background_red {
+.background__red {
   background-color: #f6484a;
 }
 
@@ -241,7 +163,7 @@ video {
   display: none;
 }
 
-.icon {
+.icon{
   display: none;
   position: absolute;
   font-size: 1.3rem;
@@ -266,6 +188,5 @@ video {
 
   #showChat {
     display: flex;
-    font-size: xx-large;
   }
-} */
+}
