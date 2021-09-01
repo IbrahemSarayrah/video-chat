@@ -32,7 +32,8 @@ const user = prompt("Enter Your Name ...");
 //     port: '3000'
 //   });
 
-var peer = new Peer({host:'peerjs-server.herokuapp.com', secure:true, port:443})
+var peer = new Peer({host:'video-chat-app-01.herokuapp.com', secure:true, port:443})
+
 
 peer.on('open', function(id) {
     console.log('My peer ID is: ' + id);
@@ -53,7 +54,6 @@ navigator.mediaDevices
     peer.on('call' , (call)=>{
         call.answer(stream);
         const video = document.createElement('video');
-        video.setAttribute('id','video1');
         call.on('stream' , (userVideoStream)=>{
             addVideoStream(video , userVideoStream);
         });
@@ -68,7 +68,6 @@ navigator.mediaDevices
 const connectToNewUser = (userId , stream) =>{
     const call = peer.call(userId , stream);
     const video = document.createElement('video');
-    video.setAttribute('id','video2');
     call.on('stream' , (userVideoStream)=>{
         addVideoStream(video , userVideoStream);
     });
@@ -113,7 +112,7 @@ const stopVideo = document.querySelector("#stopVideo");
 
 muteButton.addEventListener('click',()=>{
     const enabled = myVideoStream.getAudioTracks()[0].enabled;
-
+   
     if(enabled){
         myVideoStream.getAudioTracks()[0].enabled = false;
       let  html = `<i class="fas fa-microphone-slash"></i>`;
