@@ -27,10 +27,9 @@ const user = prompt("Enter Your Name ...");
 
 var peer = new Peer(undefined, {
     path: "/peerjs",
-    host: "peerjs-server.herokuapp.com",
+    host: "/",
     port: "443",
   });
-
   
 peer.on('open', function(id) {
     console.log('My peer ID is: ' + id);
