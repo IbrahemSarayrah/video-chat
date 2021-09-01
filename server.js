@@ -1,9 +1,7 @@
 'use strict';
 
 const express = require('express');
-var cors = require('cors');
 const app = express();
-app.use(cors());
 const server = require('http').Server(app);
 const uuid = require('uuid').v4;
 app.set("view engine", "ejs");
