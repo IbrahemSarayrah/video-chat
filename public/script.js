@@ -29,7 +29,7 @@ var peer = new Peer(undefined, {
     path: "/peerjs",
     host: "/",
     port: "3000",
-    secure: false
+    secure: true
   });
 
 peer.on('open', function(id) {
