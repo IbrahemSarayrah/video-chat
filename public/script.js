@@ -23,13 +23,13 @@ showChat.addEventListener("click" , ()=>{
     document.querySelector(".icon").style.display = "block";
 });
 
+
 const user = prompt("Enter Your Name ...");
 console.log('log before 11111111');
 var peer = new Peer(undefined, {
     path: "/peerjs",
     host: "/",
     port: "3000",
-    secure: true
   });
 
 peer.on('open', function(id) {
